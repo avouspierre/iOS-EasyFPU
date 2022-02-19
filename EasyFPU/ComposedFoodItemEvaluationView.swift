@@ -24,6 +24,8 @@ struct ComposedFoodItemEvaluationView: View {
         }
     }
     
+    var nightscout: BaseNightscoutManager = BaseNightscoutManager()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -126,7 +128,7 @@ struct ComposedFoodItemEvaluationView: View {
         case .help:
             HelpView(helpScreen: self.helpScreen)
         case .exportToHealth:
-            ComposedFoodItemExportView(composedFoodItem: composedFoodItem, absorptionScheme: absorptionScheme)
+            ComposedFoodItemExportView(composedFoodItem: composedFoodItem, absorptionScheme: absorptionScheme,nighscout: nightscout)
         }
     }
 }

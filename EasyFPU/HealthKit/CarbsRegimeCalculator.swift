@@ -13,7 +13,7 @@ class CarbsRegimeCalculator: ObservableObject {
     
     // MARK: - Variables required by the HealthKit data model
     
-    @Published var hkObjects: [HKObject]
+    @Published var hkObjects: [HKQuantitySample]
     var sugarsEntries: [Date: CarbsEntry]
     var carbsEntries: [Date: CarbsEntry]
     var eCarbsEntries: [Date: CarbsEntry]
@@ -59,7 +59,7 @@ class CarbsRegimeCalculator: ObservableObject {
     // MARK: - Initializers
     
     init(composedFoodItem: ComposedFoodItemViewModel, eCarbsAbsorptionTimeInHours: Int, includeSugars: Bool, includeTotalMealCarbs: Bool, includeECarbs: Bool) {
-        self.hkObjects = [HKObject]()
+        self.hkObjects = [HKQuantitySample]()
         self.sugarsEntries = [Date: CarbsEntry]()
         self.carbsEntries = [Date: CarbsEntry]()
         self.eCarbsEntries = [Date: CarbsEntry]()
@@ -188,7 +188,7 @@ class CarbsRegimeCalculator: ObservableObject {
         }
     }
     
-    private func generateEntries(amount: Double, time: Date, type: CarbsEntryType) -> (hkObject: HKObject, carbsEntry: CarbsEntry) {
+    private func generateEntries(amount: Double, time: Date, type: CarbsEntryType) -> (hkObject: HKQuantitySample, carbsEntry: CarbsEntry) {
         let hkObject = HealthDataHelper.processQuantitySample(value: amount, unit: HealthDataHelper.unitCarbs, start: time, end: time, sampleType: HealthDataHelper.objectTypeCarbs)
         let xCarbsEntry = CarbsEntry(type: type, value: amount, date: time)
         return (hkObject, xCarbsEntry)

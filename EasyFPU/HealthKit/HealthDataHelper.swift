@@ -62,7 +62,7 @@ class HealthDataHelper {
         requestHealthDataAccessIfNeeded(toShare: Set([objectTypeCarbs, objectTypeCalories]), read: nil, completion: completion)
     }
     
-    static func processQuantitySample(value: Double, unit: HKUnit, start: Date, end: Date, sampleType: HKObjectType) -> HKObject {
+    static func processQuantitySample(value: Double, unit: HKUnit, start: Date, end: Date, sampleType: HKObjectType) -> HKQuantitySample {
         let quantity = HKQuantity(unit: unit, doubleValue: value)
         let hkQuantitySample = HKQuantitySample(type: sampleType as! HKQuantityType, quantity: quantity, start: start, end: end)
         return hkQuantitySample

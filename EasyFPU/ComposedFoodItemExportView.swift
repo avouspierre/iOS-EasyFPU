@@ -9,11 +9,18 @@
 import SwiftUI
 import HealthKit
 import LocalAuthentication
+import Combine
+
+enum typeExport {
+    case HK
+    case NS
+}
 
 struct ComposedFoodItemExportView: View {
     @Environment(\.presentationMode) var presentation
     var composedFoodItem: ComposedFoodItemViewModel
     var absorptionScheme: AbsorptionScheme
+    var nighscout: BaseNightscoutManager
     @ObservedObject var userSettings = UserSettings.shared
     @ObservedObject var carbsRegimeCalculator = CarbsRegimeCalculator.default
     @State var showingSheet = false
@@ -22,6 +29,7 @@ struct ComposedFoodItemExportView: View {
     @State var showingExportWarning = false
     @State var alertMessages = [String]()
     private let helpScreen = HelpScreen.mealExport
+    @State  var typeExportChoice: typeExport = typeExport.HK
     
     @State var exportTotalMealCalories = UserSettings.getValue(for: UserSettings.UserDefaultsBoolKey.exportTotalMealCalories) ?? false
     
@@ -64,10 +72,20 @@ struct ComposedFoodItemExportView: View {
                 }.padding()
                 
                 Button(action: {
-                    self.prepareHealthSampleExport()
+                    self.prepareHealthSampleExport(exportChoice: typeExport.HK)
                 }) {
                     Image(systemName: "square.and.arrow.up")
                     Text("Export").fontWeight(.bold)
+                }
+                .multilineTextAlignment(.center)
+                .padding()
+                
+                Button(action: {
+                    self.prepareHealthSampleExport(exportChoice: typeExport.NS)
+                  //  self.prepareNSSampleExport()
+                }) {
+                    Image(systemName: "square.and.arrow.up")
+                    Text("Export NightScout").fontWeight(.bold)
                 }
                 .multilineTextAlignment(.center)
                 .padding()
@@ -146,7 +164,8 @@ struct ComposedFoodItemExportView: View {
         self.carbsRegimeCalculator.recalculate()
     }
     
-    private func prepareHealthSampleExport() {
+    private  func prepareHealthSampleExport(exportChoice:typeExport) {
+        self.typeExportChoice = exportChoice
         // Check for recent exports
         if carbsRegimeCalculator.includeTotalMealSugars { checkForRecentExports(of: UserSettings.UserDefaultsDateKey.lastSugarsExport) }
         if carbsRegimeCalculator.includeTotalMealCarbs { checkForRecentExports(of: UserSettings.UserDefaultsDateKey.lastCarbsExport) }
@@ -158,6 +177,7 @@ struct ComposedFoodItemExportView: View {
             authenticate()
         }
     }
+    
     
     private func exportHealthSample() {
         var hkObjects = [HKObject]()
@@ -189,6 +209,29 @@ struct ComposedFoodItemExportView: View {
                 self.showingAlert = true
             }
         }
+    }
+    
+    private func exportNSSample() {
+        var hkObjects = [HKQuantitySample]()
+        hkObjects.append(contentsOf: carbsRegimeCalculator.hkObjects)
+        if exportTotalMealCalories {
+            let caloriesObject = HealthDataHelper.processQuantitySample(value: composedFoodItem.calories, unit: HealthDataHelper.unitCalories, start: Date(), end: Date(), sampleType: HealthDataHelper.objectTypeCalories)
+            hkObjects.append(caloriesObject)
+        }
+        
+        
+        nighscout.addCarbs(hkObjects) { (success, error) in
+            if !success {
+                self.errorMessage = NSLocalizedString("Cannot save data to NS: ", comment: "")
+                self.errorMessage += error != nil ? error!.localizedDescription : NSLocalizedString("Unspecified error", comment: "")
+                self.showingAlert = true
+            } else {
+                self.setLatestExportDates()
+                self.errorMessage = NSLocalizedString("Successfully exported data to NS", comment: "")
+                self.showingAlert = true
+            }
+        }
+       
     }
     
     private func checkForRecentExports(of settingsKey: UserSettings.UserDefaultsDateKey) {
@@ -239,7 +282,11 @@ struct ComposedFoodItemExportView: View {
                 DispatchQueue.main.async {
                     if success {
                         // Authentication successful
-                        self.exportHealthSample()
+                        if (self.typeExportChoice == typeExport.HK) {
+                            self.exportHealthSample()
+                        } else {
+                            self.exportNSSample()
+                        }
                     } else {
                         // There was a problem
                         if authenticationError != nil {
@@ -257,4 +304,6 @@ struct ComposedFoodItemExportView: View {
             self.showingAlert = true
         }
     }
+    
+    
 }

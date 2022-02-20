@@ -43,10 +43,7 @@ final class BaseNightscoutManager {
 //        return nil
 //    }
 
-    
-
-    
-
+   
     func uploadTreatments(_ treatments: [HKQuantitySample], completionUpload: @escaping (Bool,Error?) -> Void) {
         guard !treatments.isEmpty, let nightscout = nightscoutAPI else {
             return

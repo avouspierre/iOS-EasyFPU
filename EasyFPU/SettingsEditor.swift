@@ -5,7 +5,7 @@
 //  Created by Ulrich Rüth on 30.07.20.
 //  Copyright © 2020 Ulrich Rüth. All rights reserved.
 //
-
+import Combine
 import SwiftUI
 
 struct SettingsEditor: View {
@@ -28,6 +28,8 @@ struct SettingsEditor: View {
     private let helpScreen = HelpScreen.absorptionSchemeEditor
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentation
+    
+    @State private var lifetime = Set<AnyCancellable>()
     
     var body: some View {
         NavigationView {
@@ -244,6 +246,13 @@ struct SettingsEditor: View {
                         .autocapitalization(.none)
                         .textContentType(.password)
                         .keyboardType(.asciiCapable)
+                    
+                    // The reset button
+                    Button(action: {
+                        self.checkConnection()
+                    }) {
+                        Text("Check Connexion")
+                    }
                 }
                 
             
@@ -343,7 +352,7 @@ struct SettingsEditor: View {
         // Alert
         .alert(isPresented: $showingAlert) {
             Alert(
-                title: Text("Data alert"),
+                title: Text("Information"),
                 message: Text(self.errorMessage),
                 dismissButton: .default(Text("OK"))
             )
@@ -351,6 +360,28 @@ struct SettingsEditor: View {
         .sheet(isPresented: self.$showingScreen) {
             HelpView(helpScreen: self.helpScreen)
         }
+    }
+    
+    func checkConnection() {
+        guard let url = URL(string: self.selectedNightscoutURL) else {
+            errorMessage = "Invalid URL"
+            showingAlert = true
+            return
+        }
+        NightscoutAPI(url: url, secret: self.selectedNightscoutSecret).checkConnection()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished: break
+                case let .failure(error):
+                    errorMessage = "Error: \(error.localizedDescription)"
+                    showingAlert = true
+                }
+            } receiveValue: {
+                errorMessage = "Connected 👍"
+                showingAlert = true
+            }
+            .store(in: &self.lifetime)
     }
     
     func deleteAbsorptionBlock(at offsets: IndexSet) {

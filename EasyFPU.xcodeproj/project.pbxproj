@@ -98,6 +98,16 @@
 		1BF8A4C024C21A52008634DF /* FoodItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8A4BE24C21A52008634DF /* FoodItem+CoreDataClass.swift */; };
 		1BF8A4C124C21A52008634DF /* FoodItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8A4BF24C21A52008634DF /* FoodItem+CoreDataProperties.swift */; };
 		1BFDFA24250A1DBB00379EB3 /* CarbsRegimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFDFA23250A1DBB00379EB3 /* CarbsRegimeCalculator.swift */; };
+		CE7F840927C2ABD500D7F8D2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F840027C2ABD500D7F8D2 /* NetworkService.swift */; };
+		CE7F840A27C2ABD500D7F8D2 /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F840127C2ABD500D7F8D2 /* HTTPResponseStatus.swift */; };
+		CE7F840B27C2ABD500D7F8D2 /* NightscoutAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F840227C2ABD500D7F8D2 /* NightscoutAPI.swift */; };
+		CE7F840C27C2ABD500D7F8D2 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F840327C2ABD500D7F8D2 /* NetworkReachabilityManager.swift */; };
+		CE7F840D27C2ABD500D7F8D2 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F840427C2ABD500D7F8D2 /* JSON.swift */; };
+		CE7F840E27C2ABD500D7F8D2 /* Protected.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F840527C2ABD500D7F8D2 /* Protected.swift */; };
+		CE7F840F27C2ABD500D7F8D2 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F840627C2ABD500D7F8D2 /* Formatters.swift */; };
+		CE7F841027C2ABD500D7F8D2 /* NightscoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F840727C2ABD500D7F8D2 /* NightscoutManager.swift */; };
+		CE7F841127C2ABD500D7F8D2 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F840827C2ABD500D7F8D2 /* ReachabilityManager.swift */; };
+		CE7F841427C2AD7E00D7F8D2 /* CarbsEntryNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F841327C2AD7E00D7F8D2 /* CarbsEntryNS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -198,6 +208,16 @@
 		2CE0A6239381CBD7B93933F9 /* Pods-EasyFPU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFPU.release.xcconfig"; path = "Target Support Files/Pods-EasyFPU/Pods-EasyFPU.release.xcconfig"; sourceTree = "<group>"; };
 		7BB2BCB4670FF2BD819E2D77 /* Pods_EasyFPU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyFPU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA50480835A2B36F0BC9C947 /* Pods-EasyFPU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFPU.debug.xcconfig"; path = "Target Support Files/Pods-EasyFPU/Pods-EasyFPU.debug.xcconfig"; sourceTree = "<group>"; };
+		CE7F840027C2ABD500D7F8D2 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		CE7F840127C2ABD500D7F8D2 /* HTTPResponseStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseStatus.swift; sourceTree = "<group>"; };
+		CE7F840227C2ABD500D7F8D2 /* NightscoutAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightscoutAPI.swift; sourceTree = "<group>"; };
+		CE7F840327C2ABD500D7F8D2 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		CE7F840427C2ABD500D7F8D2 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		CE7F840527C2ABD500D7F8D2 /* Protected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protected.swift; sourceTree = "<group>"; };
+		CE7F840627C2ABD500D7F8D2 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		CE7F840727C2ABD500D7F8D2 /* NightscoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightscoutManager.swift; sourceTree = "<group>"; };
+		CE7F840827C2ABD500D7F8D2 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		CE7F841327C2AD7E00D7F8D2 /* CarbsEntryNS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarbsEntryNS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +431,7 @@
 		1BFDFA22250A1D9B00379EB3 /* HealthKit */ = {
 			isa = PBXGroup;
 			children = (
+				CE7F841227C2ABE500D7F8D2 /* Network */,
 				1B0CE2B9250663B5008B04E3 /* HealthDataHelper.swift */,
 				1BFDFA23250A1DBB00379EB3 /* CarbsRegimeCalculator.swift */,
 				1BCC1BEE2519036F00920264 /* CarbsRegime.swift */,
@@ -426,6 +447,23 @@
 				2CE0A6239381CBD7B93933F9 /* Pods-EasyFPU.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE7F841227C2ABE500D7F8D2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CE7F841327C2AD7E00D7F8D2 /* CarbsEntryNS.swift */,
+				CE7F840627C2ABD500D7F8D2 /* Formatters.swift */,
+				CE7F840127C2ABD500D7F8D2 /* HTTPResponseStatus.swift */,
+				CE7F840427C2ABD500D7F8D2 /* JSON.swift */,
+				CE7F840327C2ABD500D7F8D2 /* NetworkReachabilityManager.swift */,
+				CE7F840027C2ABD500D7F8D2 /* NetworkService.swift */,
+				CE7F840227C2ABD500D7F8D2 /* NightscoutAPI.swift */,
+				CE7F840727C2ABD500D7F8D2 /* NightscoutManager.swift */,
+				CE7F840527C2ABD500D7F8D2 /* Protected.swift */,
+				CE7F840827C2ABD500D7F8D2 /* ReachabilityManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -556,7 +594,9 @@
 			files = (
 				1BCC1BEF2519036F00920264 /* CarbsRegime.swift in Sources */,
 				1BF21B072552813000590068 /* ActivityIndicatorDynamicText.swift in Sources */,
+				CE7F840F27C2ABD500D7F8D2 /* Formatters.swift in Sources */,
 				1BD0693C254D97DD00B0E15A /* VariableAmountItem.swift in Sources */,
+				CE7F841127C2ABD500D7F8D2 /* ReachabilityManager.swift in Sources */,
 				1B6106BB24D93346001F2284 /* DataHelper.swift in Sources */,
 				1B0868AB254EDDC0005953CC /* FoodItemListView.swift in Sources */,
 				1BAD273D25495B4100A730FB /* FoodPreviewContent.swift in Sources */,
@@ -566,6 +606,7 @@
 				1B377A6824FAA935005AC5C6 /* AboutView.swift in Sources */,
 				1B51B3332540BCB800064EB1 /* FoodPreview.swift in Sources */,
 				1BB631DA24FBDA9400B75EF3 /* HelpView.swift in Sources */,
+				CE7F841427C2AD7E00D7F8D2 /* CarbsEntryNS.swift in Sources */,
 				1B90D2DE24F7BAB40059BFFA /* ComposedFoodItemView.swift in Sources */,
 				1B0AB0DF254F760D00A7BFBD /* HelpFoodItemComposer.swift in Sources */,
 				1B6867E124FD0C6B0057EC6A /* HelpViewFoodItemSelector.swift in Sources */,
@@ -581,6 +622,7 @@
 				1BC75243254AF786001C4D27 /* ComposedFoodItemViewModel.swift in Sources */,
 				1BF1A160251AA336001E561C /* ComposedFoodItemECarbsView.swift in Sources */,
 				1B3CEB9924D32D02001D64DA /* AbsorptionBlockViewModel.swift in Sources */,
+				CE7F840E27C2ABD500D7F8D2 /* Protected.swift in Sources */,
 				1B0AB0DC254F755000A7BFBD /* FoodItemComposerViewSheets.swift in Sources */,
 				1B68548824BC70ED005ABB8B /* FoodItemEditor.swift in Sources */,
 				1BF8A4C024C21A52008634DF /* FoodItem+CoreDataClass.swift in Sources */,
@@ -589,6 +631,7 @@
 				1B6B93772554008C00F0CC7D /* ComposedFoodItem+CoreDataProperties.swift in Sources */,
 				1B25D487253DC8DB00848C2A /* FoodSearchResultPreview.swift in Sources */,
 				1BA963E02507DFC200375650 /* ComposedFoodItemExportView.swift in Sources */,
+				CE7F840C27C2ABD500D7F8D2 /* NetworkReachabilityManager.swift in Sources */,
 				1B6B93762554008C00F0CC7D /* ComposedFoodItem+CoreDataClass.swift in Sources */,
 				1BA963E22507E03100375650 /* ComposedFoodItemEvaluationViewSheets.swift in Sources */,
 				1B0868B5254F0EEF005953CC /* ProductsListView.swift in Sources */,
@@ -605,6 +648,7 @@
 				1B0CE2BA250663B5008B04E3 /* HealthDataHelper.swift in Sources */,
 				1B3EEB16253368B3004C110A /* HealthExportCarbsPreviewChart.swift in Sources */,
 				1B18844A253B336500B671A2 /* FoodDatabaseEntry+FoodDatabaseImage.swift in Sources */,
+				CE7F840A27C2ABD500D7F8D2 /* HTTPResponseStatus.swift in Sources */,
 				1B377A6624FA5A44005AC5C6 /* DisclaimerView.swift in Sources */,
 				1BA040CA24BF9DE2001308EC /* TypicalAmount+CoreDataClass.swift in Sources */,
 				1B919950254894370049672D /* FoodPreviewSheets.swift in Sources */,
@@ -613,13 +657,17 @@
 				1BC75246254AF8CF001C4D27 /* HelpViewIngredientsList.swift in Sources */,
 				1B004A4F24BA3EF1001E362A /* AbsorptionBlockFromJson.swift in Sources */,
 				1B188444253B329000B671A2 /* OpenFoodFacts.swift in Sources */,
+				CE7F840B27C2ABD500D7F8D2 /* NightscoutAPI.swift in Sources */,
 				1B90D2DC24F7A9660059BFFA /* ResignKeyboard.swift in Sources */,
 				1BAD2740254A008000A730FB /* MainView.swift in Sources */,
 				1B0868B2254F0D3E005953CC /* NotificationView.swift in Sources */,
 				1BBFA9A32523B2FE00FB78D3 /* CustomViews.swift in Sources */,
+				CE7F841027C2ABD500D7F8D2 /* NightscoutManager.swift in Sources */,
 				1B188447253B32DE00B671A2 /* FoodDatabase.swift in Sources */,
+				CE7F840D27C2ABD500D7F8D2 /* JSON.swift in Sources */,
 				1B870FC124C9A32E00183C9F /* ComposedFoodItemEvaluationView.swift in Sources */,
 				1BBD6C4924C9D5700025AB84 /* FoodItemViewSheets.swift in Sources */,
+				CE7F840927C2ABD500D7F8D2 /* NetworkService.swift in Sources */,
 				1B004A2F24BA3035001E362A /* SceneDelegate.swift in Sources */,
 				1B25D483253DB0A900848C2A /* FoodSearch.swift in Sources */,
 				1BA2F762259F8AA9004300A4 /* ActivityView.swift in Sources */,
@@ -790,7 +838,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"EasyFPU/Preview Content\"";
-				DEVELOPMENT_TEAM = Q4HRNRLV9A;
+				DEVELOPMENT_TEAM = HJS9L9WUYM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = EasyFPU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -799,7 +847,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = info.rueth.EasyFPU;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.pierrelagarde.EasyFPU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -817,7 +865,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"EasyFPU/Preview Content\"";
-				DEVELOPMENT_TEAM = Q4HRNRLV9A;
+				DEVELOPMENT_TEAM = HJS9L9WUYM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = EasyFPU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -826,7 +874,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = info.rueth.EasyFPU;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.pierrelagarde.EasyFPU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

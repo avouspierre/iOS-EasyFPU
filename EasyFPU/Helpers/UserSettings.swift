@@ -54,6 +54,8 @@ class UserSettings: ObservableObject {
     enum UserDefaultsStringKey: String, CaseIterable {
         case foodDatabase = "FoodDatabase"
         case countryCode = "CountryCode"
+        case nightscoutURL = "NightscoutURL"
+        case nightscoutSecret = "NightscoutSecret"
     }
     
     // MARK: - The key store for syncing via iCloud
@@ -77,6 +79,8 @@ class UserSettings: ObservableObject {
     @Published var foodDatabase: FoodDatabase
     @Published var searchWorldwide: Bool
     @Published var countryCode: String?
+    @Published var nightscoutURL: String?
+    @Published var nightscoutSecret: String? 
     
     // The ComposedFoodItems
     @Published var composedMeal = ComposedFoodItemViewModel(name: NSLocalizedString(ProductsListView.composedFoodItemName, comment: ""), category: .product, favorite: false)
@@ -97,7 +101,9 @@ class UserSettings: ObservableObject {
         treatSugarsSeparately: UserSettings.getValue(for: UserDefaultsBoolKey.treatSugarsSeparately) ?? AbsorptionSchemeViewModel.treatSugarsSeparatelyDefault,
         foodDatabase: FoodDatabaseType.getFoodDatabase(type: UserSettings.getFoodDatabaseType()),
         searchWorldwide: UserSettings.getValue(for: UserDefaultsBoolKey.searchWorldwide) ?? false,
-        countryCode: UserSettings.getValue(for: UserDefaultsStringKey.countryCode)
+        countryCode: UserSettings.getValue(for: UserDefaultsStringKey.countryCode),
+        nightscoutURL: UserSettings.getValue(for: UserDefaultsStringKey.nightscoutURL),
+        nightscoutSecret: UserSettings.getValue(for: UserDefaultsStringKey.nightscoutSecret)
     )
     
     private init(
@@ -115,7 +121,9 @@ class UserSettings: ObservableObject {
         treatSugarsSeparately: Bool,
         foodDatabase: FoodDatabase,
         searchWorldwide: Bool,
-        countryCode: String?
+        countryCode: String?,
+        nightscoutURL: String?,
+        nightscoutSecret: String?
     ) {
         self.disclaimerAccepted = disclaimerAccepted
         self.foodDatabaseUseAtOwnRiskAccepted = foodDatabaseUseAtOwnRiskAccepted
@@ -132,6 +140,8 @@ class UserSettings: ObservableObject {
         self.foodDatabase = foodDatabase
         self.searchWorldwide = searchWorldwide
         self.countryCode = countryCode
+        self.nightscoutURL = nightscoutURL
+        self.nightscoutSecret = nightscoutSecret
     }
     
     // MARK: - Static helper functions

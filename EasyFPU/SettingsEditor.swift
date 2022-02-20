@@ -22,6 +22,8 @@ struct SettingsEditor: View {
     @State private var selectedFoodDatabaseType: FoodDatabaseType = UserSettings.getFoodDatabaseType()
     @State private var searchWorldwide: Bool = UserSettings.shared.searchWorldwide
     @State private var selectedCountry: String = UserSettings.getCountryCode() ?? ""
+    @State private var selectedNightscoutURL : String = UserSettings.shared.nightscoutURL ?? ""
+    @State private var selectedNightscoutSecret : String = UserSettings.shared.nightscoutSecret ?? ""
     @State private var showingScreen = false
     private let helpScreen = HelpScreen.absorptionSchemeEditor
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -228,6 +230,23 @@ struct SettingsEditor: View {
                         }
                     }
                 }
+                
+                // NightScout
+                Section(header: Text("NightScout")) {
+                    TextField("URL", text: $selectedNightscoutURL)
+                            .disableAutocorrection(true)
+                            .textContentType(.URL)
+                            .autocapitalization(.none)
+                            .keyboardType(.URL)
+                    
+                    SecureField("API secret", text: $selectedNightscoutSecret)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                        .textContentType(.password)
+                        .keyboardType(.asciiCapable)
+                }
+                
+            
             }
             .animation(.easeInOut(duration: 0.16))
             
@@ -285,7 +304,10 @@ struct SettingsEditor: View {
                             UserSettings.set(UserSettings.UserDefaultsType.bool(self.draftAbsorptionScheme.treatSugarsSeparately, UserSettings.UserDefaultsBoolKey.treatSugarsSeparately), errorMessage: &self.errorMessage) &&
                             UserSettings.set(UserSettings.UserDefaultsType.string(self.selectedFoodDatabaseType.rawValue, UserSettings.UserDefaultsStringKey.foodDatabase), errorMessage: &self.errorMessage) &&
                             UserSettings.set(UserSettings.UserDefaultsType.bool(self.searchWorldwide, UserSettings.UserDefaultsBoolKey.searchWorldwide), errorMessage: &self.errorMessage) &&
-                            UserSettings.set(UserSettings.UserDefaultsType.string(self.selectedCountry, UserSettings.UserDefaultsStringKey.countryCode), errorMessage: &errorMessage)
+                            UserSettings.set(UserSettings.UserDefaultsType.string(self.selectedCountry, UserSettings.UserDefaultsStringKey.countryCode), errorMessage: &errorMessage) &&
+                            UserSettings.set(UserSettings.UserDefaultsType.string(self.selectedNightscoutURL, UserSettings.UserDefaultsStringKey.nightscoutURL), errorMessage: &errorMessage) &&
+                            UserSettings.set(UserSettings.UserDefaultsType.string(self.selectedNightscoutSecret, UserSettings.UserDefaultsStringKey.nightscoutSecret), errorMessage: &errorMessage)
+                            
                         ) {
                             self.showingAlert = true
                         } else {
@@ -303,6 +325,8 @@ struct SettingsEditor: View {
                             UserSettings.shared.foodDatabase = FoodDatabaseType.getFoodDatabase(type: self.selectedFoodDatabaseType)
                             UserSettings.shared.searchWorldwide = self.searchWorldwide
                             UserSettings.shared.countryCode = self.selectedCountry
+                            UserSettings.shared.nightscoutURL = self.selectedNightscoutURL
+                            UserSettings.shared.nightscoutSecret = self.selectedNightscoutSecret
                             
                             // Close sheet
                             presentation.wrappedValue.dismiss()

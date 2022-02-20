@@ -220,7 +220,7 @@ struct ComposedFoodItemExportView: View {
         }
         
         
-        nighscout.addCarbs(hkObjects) { (success, error) in
+        nighscout.uploadTreatments(hkObjects) { (success, error) in
             if !success {
                 self.errorMessage = NSLocalizedString("Cannot save data to NS: ", comment: "")
                 self.errorMessage += error != nil ? error!.localizedDescription : NSLocalizedString("Unspecified error", comment: "")

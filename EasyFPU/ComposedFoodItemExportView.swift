@@ -64,7 +64,7 @@ struct ComposedFoodItemExportView: View {
                         userSettings.mealDelayInMinutes += 5
                         carbsRegimeCalculator.recalculate()
                     }, onDecrement: {
-                        userSettings.mealDelayInMinutes = max(0, userSettings.mealDelayInMinutes - 5)
+                        userSettings.mealDelayInMinutes = userSettings.mealDelayInMinutes - 5 // max(0, userSettings.mealDelayInMinutes - 5)
                         carbsRegimeCalculator.recalculate()
                     })
                     Text("\(userSettings.mealDelayInMinutes)")

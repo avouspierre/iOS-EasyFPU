@@ -93,7 +93,9 @@ class CarbsRegimeCalculator: ObservableObject {
         let mealStartTime = now.addingTimeInterval(TimeInterval(UserSettings.shared.mealDelayInMinutes * 60))
         
         // Determine global start and end time
-        globalStartTime = now // Start is always now, as we want to visualize the idle time before any carbs hit the body
+        globalStartTime = mealStartTime// Start is always now, as we want to visualize the idle time before any carbs hit the body
+        
+        
         globalEndTime = max(
             mealStartTime.addingTimeInterval(includeTotalMealSugars ? (Double(UserSettings.shared.absorptionTimeSugarsDelayInMinutes) + UserSettings.shared.absorptionTimeSugarsDurationInHours * 60) * 60 : 0), // either sugars start + duration or zero
             mealStartTime.addingTimeInterval(includeTotalMealCarbs ? (Double(UserSettings.shared.absorptionTimeCarbsDelayInMinutes) + UserSettings.shared.absorptionTimeCarbsDurationInHours * 60) * 60 : 0), // either carbs start + duration or zero

@@ -32,7 +32,7 @@ struct ComposedFoodItemEvaluationView: View {
                 VStack {
                     // The meal delay stepper
                     HStack {
-                        Stepper("Delay until meal", value: $userSettings.mealDelayInMinutes, in: 0...60, step: 5)
+                        Stepper("Delay until meal", value: $userSettings.mealDelayInMinutes, in: -180...180, step: 5)
                         Text("\(userSettings.mealDelayInMinutes)")
                         Text("min")
                     }.padding()

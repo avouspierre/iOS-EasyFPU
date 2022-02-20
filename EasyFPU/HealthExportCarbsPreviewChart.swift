@@ -92,8 +92,11 @@ struct HealthExportCarbsPreviewChart: UIViewRepresentable {
         uiView.barData?.clearValues()
         uiView.data = addData()
         
+    
+
         // Re-format x axis
         uiView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisLabels)
+        
         
         // Modify the view - this needs to be done _after_ having set the data!!!
         uiView.setVisibleXRange(minXRange: minXRange, maxXRange: Double(timeKeys.count))

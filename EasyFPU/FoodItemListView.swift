@@ -175,7 +175,7 @@ struct FoodItemListView: View {
                 navigationBarTitle: NSLocalizedString("New \(category.rawValue)", comment: ""),
                 draftFoodItem: // Create new empty draftFoodItem
                     FoodItemViewModel(
-                        name: "",
+                        name: self.searchString,
                         category: category,
                         favorite: false,
                         caloriesPer100g: 0.0,

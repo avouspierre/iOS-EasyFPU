@@ -52,13 +52,18 @@ final class BaseNightscoutManager {
         let CarbsEntries:[CarbsEntryNS] = treatments.map {
             CarbsEntryNS(
                     createdAt: $0.startDate,
-                    carbs: Decimal(round($0.quantity.doubleValue(for: HealthDataHelper.unitCarbs)*100)/100),
+                    carbs: Decimal(round($0.quantity.doubleValue(for: HealthDataHelper.unitCarbs)*10)/10),
                     enteredBy: CarbsEntryNS.manual
             )
         }
+        
+        //ignore cab = 0
+        let CarbsEntriesWithoutZero:[CarbsEntryNS] =  CarbsEntries.filter {
+            carb in return carb.carbs > 0
+        }
 
         processQueue.async {
-            nightscout.uploadTreatments(CarbsEntries)
+            nightscout.uploadTreatments(CarbsEntriesWithoutZero)
                 .sink { completion in
                 switch completion {
                 case .finished:

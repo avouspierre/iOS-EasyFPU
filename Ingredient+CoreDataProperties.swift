@@ -23,6 +23,8 @@ extension Ingredient {
     @NSManaged public var caloriesPer100g: Double
     @NSManaged public var carbsPer100g: Double
     @NSManaged public var sugarsPer100g: Double
+    @NSManaged public var fatPer100g: Double
+    @NSManaged public var proteinsPer100g: Double
     @NSManaged public var amount: Int64
     @NSManaged public var id: UUID?
     @NSManaged public var composedFoodItem: ComposedFoodItem?

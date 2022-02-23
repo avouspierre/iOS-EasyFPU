@@ -58,9 +58,21 @@ struct FoodPreviewContent: View {
                 Text("g")
             }.padding([.leading, .trailing])
             HStack {
-                Text("Thereof Sugars per 100g")
+                Text("Sugars per 100g")
                 Spacer()
                 Text(DataHelper.doubleFormatter(numberOfDigits: 1).string(from: NSNumber(value: selectedEntry.sugarsPer100g))!)
+                Text("g")
+            }.padding([.leading, .trailing])
+            HStack {
+                Text("fat per 100g")
+                Spacer()
+                Text(DataHelper.doubleFormatter(numberOfDigits: 1).string(from: NSNumber(value: selectedEntry.fatPer100g))!)
+                Text("g")
+            }.padding([.leading, .trailing])
+            HStack {
+                Text("Proteins per 100g")
+                Spacer()
+                Text(DataHelper.doubleFormatter(numberOfDigits: 1).string(from: NSNumber(value: selectedEntry.proteinsPer100g))!)
                 Text("g")
             }.padding([.leading, .trailing])
             

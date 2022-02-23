@@ -53,9 +53,18 @@ struct FoodItemView: View {
                     }
                     
                     HStack {
-                        Text("Thereof").font(.caption).foregroundColor(.gray)
                         Text(DataHelper.doubleFormatter(numberOfDigits: 2).string(from: NSNumber(value: foodItem.sugarsPer100g))!).font(.caption).foregroundColor(.gray)
                         Text("g Sugars").font(.caption).foregroundColor(.gray)
+                    }
+                    
+                    HStack {
+                        Text(DataHelper.doubleFormatter(numberOfDigits: 2).string(from: NSNumber(value: foodItem.fatPer100g))!).font(.caption).foregroundColor(.gray)
+                        Text("g Fats").font(.caption).foregroundColor(.gray)
+                    }
+                    
+                    HStack {
+                        Text(DataHelper.doubleFormatter(numberOfDigits: 2).string(from: NSNumber(value: foodItem.proteinsPer100g))!).font(.caption).foregroundColor(.gray)
+                        Text("g Proteins").font(.caption).foregroundColor(.gray)
                     }
                 }
             }

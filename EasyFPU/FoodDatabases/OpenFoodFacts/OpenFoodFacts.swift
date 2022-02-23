@@ -178,6 +178,8 @@ struct OpenFoodFactsProduct: Decodable, Hashable, Identifiable {
         case caloriesPer100gInKJ = "energy-kj_100g"
         case carbsPer100g = "carbohydrates_100g"
         case sugarsPer100g = "sugars_100g"
+        case fatPer100g = "fat_100g"
+        case proteinPer100g = "proteins_100g"
     }
     
     func getNutrimentsDoubleValue(key: NutrimentsKey) throws -> Double {

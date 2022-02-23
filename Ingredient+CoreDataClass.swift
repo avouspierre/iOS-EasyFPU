@@ -51,6 +51,7 @@ public class Ingredient: NSManagedObject {
         cdIngredient.sugarsPer100g = foodItemVM.sugarsPer100g
         cdIngredient.foodItem = foodItemVM.cdFoodItem
         
+        
         // Save new Ingredient
         try? moc.save()
         

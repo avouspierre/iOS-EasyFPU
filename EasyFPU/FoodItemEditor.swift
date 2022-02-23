@@ -44,6 +44,8 @@ struct FoodItemEditor: View {
     @State private var oldCarbsPer100gAsString = ""
     @State private var oldSugarsPer100gAsString = ""
     @State private var oldAmountAsString = ""
+    @State private var oldFatAsString = ""
+    @State private var oldProteinsAsString = ""
     
     @State var newTypicalAmount = ""
     @State var newTypicalAmountComment = ""
@@ -117,9 +119,21 @@ struct FoodItemEditor: View {
                             
                             // Sugars
                             HStack {
-                                CustomTextField(titleKey: "Thereof Sugars per 100g", text: $draftFoodItem.sugarsPer100gAsString, keyboardType: .decimalPad)
+                                CustomTextField(titleKey: "Sugars per 100g", text: $draftFoodItem.sugarsPer100gAsString, keyboardType: .decimalPad)
                                 Text("g Sugars")
                             }
+                            
+                            HStack {
+                                CustomTextField(titleKey: "Fat per 100g", text: $draftFoodItem.fatPer100gAsString, keyboardType: .decimalPad)
+                                Text("g Fat")
+                            }
+                            
+                            HStack {
+                                CustomTextField(titleKey: "Proteins per 100g", text: $draftFoodItem.proteinsPer100gAsString, keyboardType: .decimalPad)
+                                Text("g Proteins")
+                            }
+                            
+                            
                         }
                         
                         Section(header: Text("Typical amounts:")) {
@@ -235,6 +249,8 @@ struct FoodItemEditor: View {
                 self.oldCarbsPer100gAsString = self.draftFoodItem.carbsPer100gAsString
                 self.oldSugarsPer100gAsString = self.draftFoodItem.sugarsPer100gAsString
                 self.oldAmountAsString = self.draftFoodItem.amountAsString
+                self.oldProteinsAsString = self.draftFoodItem.proteinsPer100gAsString
+                self.oldFatAsString = self.draftFoodItem.fatPer100gAsString
             }
             
             // Notification
@@ -264,6 +280,8 @@ struct FoodItemEditor: View {
             carbsAsString: self.draftFoodItem.carbsPer100gAsString,
             sugarsAsString: self.draftFoodItem.sugarsPer100gAsString,
             amountAsString: self.draftFoodItem.amountAsString,
+            fatAsString: self.draftFoodItem.fatPer100gAsString,
+            proteinsAsString : self.draftFoodItem.proteinsPer100gAsString,
             error: &error) { // We have a valid food item
             // Add typical amounts
             updatedFoodItem.typicalAmounts = draftFoodItem.typicalAmounts
@@ -279,6 +297,7 @@ struct FoodItemEditor: View {
             }
             
             // Quit edit mode
+            
             presentation.wrappedValue.dismiss()
         } else { // Invalid data, display alert
             // Evaluate error
@@ -306,6 +325,12 @@ struct FoodItemEditor: View {
             case .amount(let errorMessage):
                 self.errorMessage = NSLocalizedString("Amount: ", comment:"") + errorMessage
                 self.draftFoodItem.amountAsString = self.oldAmountAsString
+            case .fat(let errorMessage):
+                self.errorMessage = NSLocalizedString("Fats: ", comment: "") + errorMessage
+                self.draftFoodItem.fatPer100gAsString = self.oldFatAsString
+            case .proteins(let errorMessage):
+                self.errorMessage = NSLocalizedString("Proteins: ", comment: "") + errorMessage
+                self.draftFoodItem.proteinsPer100gAsString = self.oldProteinsAsString
             }
             
             // Display alert and stay in edit mode

@@ -20,6 +20,8 @@ extension FoodItem {
     @NSManaged public var caloriesPer100g: Double
     @NSManaged public var carbsPer100g: Double
     @NSManaged public var sugarsPer100g: Double
+    @NSManaged public var fatPer100g: Double
+    @NSManaged public var proteinsPer100g: Double
     @NSManaged public var favorite: Bool
     @NSManaged public var id: UUID?
     @NSManaged public var name: String?

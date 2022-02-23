@@ -181,7 +181,9 @@ struct FoodItemListView: View {
                         caloriesPer100g: 0.0,
                         carbsPer100g: 0.0,
                         sugarsPer100g: 0.0,
-                        amount: 0
+                        amount: 0,
+                        fatPer100g: 0.0,
+                        proteinsPer100g: 0.0
                     ),
                 category: category
             ).environment(\.managedObjectContext, managedObjectContext)

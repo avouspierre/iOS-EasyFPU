@@ -15,6 +15,8 @@ struct FoodDatabaseEntry: Identifiable, Equatable {
     var caloriesPer100g: EnergyType
     var carbsPer100g: Double
     var sugarsPer100g: Double
+    var fatPer100g: Double
+    var proteinsPer100g: Double
     var source: FoodDatabaseType
     var sourceId: String
     
@@ -58,6 +60,10 @@ struct FoodDatabaseEntry: Identifiable, Equatable {
             debugPrint(error.localizedDescription)
             return nil
         }
+        
+        fatPer100g = (try? openFoodFactsProduct.getNutrimentsDoubleValue(key: OpenFoodFactsProduct.NutrimentsKey.fatPer100g)) ?? 0.0
+        
+        proteinsPer100g = (try? openFoodFactsProduct.getNutrimentsDoubleValue(key: OpenFoodFactsProduct.NutrimentsKey.proteinPer100g)) ?? 0.0
         
         // Identify the right images
         if let frontImages = openFoodFactsProduct.selectedImages?.front {

@@ -54,7 +54,7 @@
 "g Sugars" = "g Sugars";
 "Carbs" = "Carbs";
 "Sugars" = "Sugars";
-"Thereof Sugars per 100g" = "Thereof Sugars per 100g";
+"Thereof Sugars per 100g" = "Sugars per 100g";
 "g Extended Carbs" = "g Extended Carbs";
 "Extended Carbs" = "Extended Carbs";
 "kcal" = "kcal";
@@ -136,7 +136,7 @@
 "Value must not be zero or negative" = "Value must not be zero or negative";
 "Delete food item" = "Delete food item";
 "Sugars exceed carbs" = "Sugars exceed carbs";
-"Thereof" = "Thereof";
+"Thereof" = "";
 "Search term must not be empty" = "Search term must not be empty";
 
 // Settings editor

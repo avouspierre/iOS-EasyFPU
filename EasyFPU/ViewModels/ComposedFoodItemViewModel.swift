@@ -58,6 +58,22 @@ class ComposedFoodItemViewModel: ObservableObject, Codable, VariableAmountItem {
         return newValue
     }
     
+    private var fats: Double {
+        var newValue = 0.0
+        for foodItem in foodItems {
+            newValue += foodItem.getFatOnly()
+        }
+        return newValue
+    }
+    
+    private var proteins: Double {
+        var newValue = 0.0
+        for foodItem in foodItems {
+            newValue += foodItem.getProteinssOnly()
+        }
+        return newValue
+    }
+    
     var fpus: FPU {
         var fpu = FPU(fpu: 0.0)
         for foodItem in foodItems {
@@ -77,6 +93,14 @@ class ComposedFoodItemViewModel: ObservableObject, Codable, VariableAmountItem {
     
     var sugarsPer100g: Double {
         sugars / Double(amount) * 100
+    }
+    
+    var fatPer100g: Double {
+        fats / Double(amount) * 100
+    }
+    
+    var proteinsPer100g: Double {
+        proteins / Double(amount) * 100
     }
     
     var typicalAmounts: [TypicalAmountViewModel] {

@@ -42,6 +42,8 @@ public class FoodItem: NSManagedObject {
         cdFoodItem.caloriesPer100g = foodItemVM.caloriesPer100g
         cdFoodItem.carbsPer100g = foodItemVM.carbsPer100g
         cdFoodItem.sugarsPer100g = foodItemVM.sugarsPer100g
+        cdFoodItem.fatPer100g = foodItemVM.fatPer100g
+        cdFoodItem.proteinsPer100g = foodItemVM.proteinsPer100g
         cdFoodItem.favorite = foodItemVM.favorite
         cdFoodItem.id = foodItemVM.id ?? UUID()
         
@@ -74,6 +76,8 @@ public class FoodItem: NSManagedObject {
         cdFoodItem.caloriesPer100g = ingredient.caloriesPer100g
         cdFoodItem.carbsPer100g = ingredient.carbsPer100g
         cdFoodItem.sugarsPer100g = ingredient.sugarsPer100g
+        cdFoodItem.fatPer100g = ingredient.fatPer100g
+        cdFoodItem.proteinsPer100g = ingredient.proteinsPer100g
         cdFoodItem.favorite = ingredient.favorite
         cdFoodItem.id = UUID()
         cdFoodItem.composedFoodItem = ingredient.composedFoodItem
@@ -97,6 +101,8 @@ public class FoodItem: NSManagedObject {
         cdFoodItem.caloriesPer100g = composedFoodItem.caloriesPer100g
         cdFoodItem.carbsPer100g = composedFoodItem.carbsPer100g
         cdFoodItem.sugarsPer100g = composedFoodItem.sugarsPer100g
+        cdFoodItem.fatPer100g = composedFoodItem.fatPer100g
+        cdFoodItem.proteinsPer100g = composedFoodItem.proteinsPer100g
         cdFoodItem.favorite = composedFoodItem.favorite
         cdFoodItem.composedFoodItem = composedFoodItem.cdComposedFoodItem
         
@@ -133,6 +139,8 @@ public class FoodItem: NSManagedObject {
         foodItem.carbsPer100g = foodItemVM.carbsPer100g
         foodItem.caloriesPer100g = foodItemVM.caloriesPer100g
         foodItem.sugarsPer100g = foodItemVM.sugarsPer100g
+        foodItem.fatPer100g = foodItemVM.fatPer100g
+        foodItem.proteinsPer100g = foodItemVM.proteinsPer100g
         
         // Update typical amounts
         for typicalAmountVM in foodItemVM.typicalAmounts {
